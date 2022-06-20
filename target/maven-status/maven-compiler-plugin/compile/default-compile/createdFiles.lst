@@ -1,0 +1,3 @@
+pages\googlePages\GooglePage.class
+driver\DriverSingleton.class
+pages\basePage\BasePage.class

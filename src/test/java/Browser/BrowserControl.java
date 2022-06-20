@@ -3,25 +3,29 @@ package Browser;
 import driver.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import pages.googlePages.GooglePage;
 
 public class BrowserControl {
 
-    public final static long WAIT_TIME = 20;
-
     private WebDriver driver;
 
-    @BeforeTest
+    @BeforeMethod
     public void setUp() {
         driver = DriverSingleton.getDriver();
-        driver = new ChromeDriver();
-    }
+        }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         DriverSingleton.closeDriver();
-        ;
     }
 
+    public WebDriver getDriver(){
+        return driver;
+    }
+
+    public GooglePage getGooglePage(){
+        return new GooglePage(driver);
+    }
 }
